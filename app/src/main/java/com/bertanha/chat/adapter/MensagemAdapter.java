@@ -2,6 +2,7 @@ package com.bertanha.chat.adapter;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -54,6 +55,9 @@ public class MensagemAdapter extends BaseAdapter {
 
         if (idDoCliente != mensagem.getId()) {
             linha.setBackgroundColor(Color.CYAN);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                linha.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            }
         }
 
         texto.setText(mensagem.getTexto());
